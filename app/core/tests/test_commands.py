@@ -8,8 +8,17 @@ from django.db.utils import OperationalError
 from django.test import SimpleTestCase
 
 
-# This is a decorator which allows us to 'patch' (which means replace the object) for all test methods that fall within that class.
-# When used as a decorator, the object at the namespace provided "core.management.commands.wait_for_db.Command.check" will be replaced with a fake object that is passed as an argument to each of the methods within the class. So in this case, it gets passed as "patched_check" which you will see is available for every method.
+"""
+This is a decorator which allows us to 'patch' (which means replace the object)
+for all test methods that fall within that class.
+When used as a decorator, the object at the namespace provided
+"core.management.commands.wait_for_db.Command.check" will be replaced
+with a fake object that is passed as an argument to each of the methods
+within the class. So in this case, it gets passed as "patched_check"
+which you will see is available for every method.
+"""
+
+
 @patch("core.management.commands.wait_for_db.Command.check")
 class CommandsTests(SimpleTestCase):
     """Test commands"""
