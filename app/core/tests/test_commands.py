@@ -20,7 +20,7 @@ which you will see is available for every method.
 
 
 @patch("core.management.commands.wait_for_db.Command.check")
-class CommandsTests(SimpleTestCase):
+class CommandTests(SimpleTestCase):
     """Test commands"""
 
     def test_wait_for_db_ready(self, patched_check):
